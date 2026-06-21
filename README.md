@@ -45,3 +45,16 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 
 ---
 
+
+
+## 💭 Key Learnings
+
+- Embeddings capture semantic meaning, enabling retrieval even when query wording differs from document phrasing
+- Retrieval quality directly determines generation quality — vague queries return less relevant chunks
+- Explicit grounding instructions are essential to prevent LLM hallucination in RAG pipelines
+- Chunk size and overlap involve a precision-vs-context tradeoff that affects retrieval accuracy
+
+---
+
+*Author: Meher Naaz*
+
