@@ -32,4 +32,16 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 - **LLM** — Llama 3.3 70B via Groq API
 
 ---
+## 📌 Pipeline Breakdown
+
+| Step | Tool | Purpose |
+|---|---|---|
+| 1. Extract | pdfplumber | Pull readable text from PDF pages |
+| 2. Chunk | LangChain | Split into 500-char chunks with 50-char overlap |
+| 3. Embed | sentence-transformers | Convert each chunk into a 384-dim vector |
+| 4. Store | FAISS | Index vectors for fast similarity search |
+| 5. Retrieve | FAISS search | Find top-k most relevant chunks for a query |
+| 6. Generate | Groq + Llama 3.3 | Synthesize a grounded answer from retrieved context |
+
+---
 
