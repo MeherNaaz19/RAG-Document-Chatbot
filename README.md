@@ -12,3 +12,5 @@ FAISS Vector Store → Query → Semantic Retrieval →
 LLM (Llama 3.3 via Groq) → Grounded Answer
 ```
 
+---
+
