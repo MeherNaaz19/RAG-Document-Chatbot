@@ -23,3 +23,13 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 
 ---
 
+## 🛠️ Tech Stack
+
+- **PDF Extraction** — pdfplumber
+- **Text Chunking** — LangChain (RecursiveCharacterTextSplitter)
+- **Embeddings** — sentence-transformers (`all-MiniLM-L6-v2`) — runs locally, no API
+- **Vector Search** — FAISS (Facebook AI Similarity Search)
+- **LLM** — Llama 3.3 70B via Groq API
+
+---
+
