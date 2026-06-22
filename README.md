@@ -27,7 +27,7 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 
 - **PDF Extraction** — pdfplumber
 - **Text Chunking** — LangChain (RecursiveCharacterTextSplitter)
-- **Embeddings** — sentence-transformers (`all-MiniLM-L6-v2`) — runs locally, no API
+- **Embeddings** — sentence-transformers (`all-MiniLM-L6-v2`) —> runs locally, no API
 - **Vector Search** — FAISS (Facebook AI Similarity Search)
 - **LLM** — Llama 3.3 70B via Groq API
 
@@ -50,7 +50,7 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 ## 💭 Key Learnings
 
 - Embeddings capture semantic meaning, enabling retrieval even when query wording differs from document phrasing
-- Retrieval quality directly determines generation quality — vague queries return less relevant chunks
+- Retrieval quality directly determines generation quality  vague queries return less relevant chunks
 - Explicit grounding instructions are essential to prevent LLM hallucination in RAG pipelines
 - Chunk size and overlap involve a precision-vs-context tradeoff that affects retrieval accuracy
 
