@@ -45,7 +45,14 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 
 ---
 
+## 🔮 Future Enhancements
 
+- RAG-based chunking strategy for very long documents (multi-stage map-reduce summarization)
+- Support for multiple PDFs in a single session
+- Persistent vector store instead of in-memory FAISS index
+- Web UI (Streamlit) for non-technical usage
+
+---
 
 ## 💭 Key Learnings
 
