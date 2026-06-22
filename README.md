@@ -53,8 +53,10 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 3. Upload any PDF when prompted
 4. Get a free Groq API key from [console.groq.com](https://console.groq.com)
 5. Replace `"YOUR_GROQ_API_KEY"` in the notebook with your key
-6. Run all cells — use the interactive loop at the end to chat with your document
-
+6. Run all cells —
+   ```
+   Note: use the interactive loop at the end to chat with your document
+   ```
 ---
 
 ## 🔮 Future Enhancements
