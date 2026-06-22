@@ -58,7 +58,13 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
    Note: use the interactive loop at the end to chat with your document
    ```
 ---
+## 💡 Key Design Decisions
 
+- **Local embeddings (no API)** — `sentence-transformers` runs entirely on CPU, avoiding API costs and rate limits for the retrieval step
+- **Grounding via prompting** — the LLM is explicitly instructed to decline answering when context is insufficient, tested and verified to work correctly rather than hallucinating
+- **Adaptive retrieval depth** — Q&A uses `top_k=3` for precision; section summarization uses `top_k=5` for broader context, since summarization needs more coverage than direct question-answering
+
+---
 ## 🔮 Future Enhancements
 
 - RAG-based chunking strategy for very long documents (multi-stage map-reduce summarization)
