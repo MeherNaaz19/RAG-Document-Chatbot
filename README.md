@@ -32,6 +32,7 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 - **LLM** — Llama 3.3 70B via Groq API
 
 ---
+
 ## 📌 Pipeline Breakdown
 
 | Step | Tool | Purpose |
@@ -42,6 +43,17 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 | 4. Store | FAISS | Index vectors for fast similarity search |
 | 5. Retrieve | FAISS search | Find top-k most relevant chunks for a query |
 | 6. Generate | Groq + Llama 3.3 | Synthesize a grounded answer from retrieved context |
+
+---
+
+## ▶️ How to Run
+
+1. Open notebook in **Google Colab**
+2. Install dependencies (first few cells handle this)
+3. Upload any PDF when prompted
+4. Get a free Groq API key from [console.groq.com](https://console.groq.com)
+5. Replace `"YOUR_GROQ_API_KEY"` in the notebook with your key
+6. Run all cells — use the interactive loop at the end to chat with your document
 
 ---
 
