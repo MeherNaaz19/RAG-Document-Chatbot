@@ -7,7 +7,9 @@ A Retrieval-Augmented Generation (RAG) chatbot that answers questions and genera
 ## 🔄 How It Works
 
 ```
-PDF Upload → Text Extraction → Chunking → Embeddings →FAISS Vector Store → Query → Semantic Retrieval → LLM (Llama 3.3 via Groq) → Grounded Answer
+PDF Upload → Text Extraction → Chunking → Embeddings →
+FAISS Vector Store → Query → Semantic Retrieval →
+LLM (Llama 3.3 via Groq) → Grounded Answer
 ```
 
 ---
