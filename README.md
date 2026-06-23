@@ -83,5 +83,4 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 
 ---
 
-*Author: Meher Naaz*
 
