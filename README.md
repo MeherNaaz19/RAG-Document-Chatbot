@@ -1,4 +1,4 @@
-# RAG Document Chatbot 
+# RAG Document Chatbot 📄🤖
 
 A Retrieval-Augmented Generation (RAG) chatbot that answers questions and generates summaries from any PDF document grounded entirely in the document's content, with built-in hallucination prevention.
 
