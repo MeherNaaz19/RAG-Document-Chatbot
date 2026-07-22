@@ -70,3 +70,14 @@ PDFs aren't plain text files they're complex binary files with fonts, layouts, i
 `pdfplumber` is a Python library that handles all that complexity. It goes through each page, extracts the actual text content, and returns it as a clean string. It works well for text-based PDFs. If the PDF is scanned (just images of pages), it can't extract text.
 
 ---
+
+## What is Chunking and why does it matter?
+
+Even after extracting text from a PDF, you can't just dump the whole thing into an LLM prompt. Two reasons:
+
+1. **Context window limits** — LLMs can only process a limited amount of text at once. A long document might exceed that limit.
+2. **Precision** — if you send 50 pages to answer a specific question, the LLM has to wade through irrelevant content. Smaller, targeted chunks lead to better answers.
+
+So we split the document into chunks of ~500 characters with 50 characters of overlap. The overlap is important without it, a sentence that gets cut across two chunks loses context at the boundary.
+
+---
