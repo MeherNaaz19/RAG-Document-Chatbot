@@ -81,3 +81,11 @@ Even after extracting text from a PDF, you can't just dump the whole thing into 
 So we split the document into chunks of ~500 characters with 50 characters of overlap. The overlap is important without it, a sentence that gets cut across two chunks loses context at the boundary.
 
 ---
+
+## What is Hallucination?
+
+Hallucination is when an LLM confidently says something that's wrong or made up. It happens because LLMs are trained to generate plausible text, not to be factually correct. If they don't know the answer, they'll often generate something that *sounds* right rather than admitting uncertainty.
+
+In this project I handled it by explicitly telling the model in the prompt: *"If the answer isn't in the context, say 'I don't have that information in the document.'"* I tested this by asking questions that weren't in the document, it correctly said it didn't know instead of making something up.
+
+---
