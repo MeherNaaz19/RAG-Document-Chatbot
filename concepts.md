@@ -89,3 +89,19 @@ Hallucination is when an LLM confidently says something that's wrong or made up.
 In this project I handled it by explicitly telling the model in the prompt: *"If the answer isn't in the context, say 'I don't have that information in the document.'"* I tested this by asking questions that weren't in the document, it correctly said it didn't know instead of making something up.
 
 ---
+## How it all connects
+
+1. Upload PDF → `pdfplumber` extracts text
+2. `LangChain` splits text into chunks
+3. `sentence-transformers` converts chunks to vectors
+4. `FAISS` stores all the vectors
+5. User asks a question → question gets converted to a vector
+6. `FAISS` finds the most similar chunk vectors → retrieves those chunks
+7. Chunks + question go into a prompt → sent to `Llama 3.3` via `Groq`
+8. LLM generates a grounded answer using only the retrieved context
+
+That's the full RAG pipeline.
+
+---
+
+*Written by Meher Naaz*
