@@ -62,3 +62,11 @@ LangChain is a framework for building applications with LLMs. It has a lot of ut
 In this project I only used one part of it `RecursiveCharacterTextSplitter`. This splits long text into smaller chunks in a smart way. Instead of just cutting at exactly 500 characters, it tries to split at natural boundaries - paragraph breaks first, then sentence breaks, then word breaks. This keeps chunks more readable and meaningful than dumb character splitting.
 
 ---
+
+## What is pdfplumber?
+
+PDFs aren't plain text files they're complex binary files with fonts, layouts, images, and metadata mixed in. You can't just open a PDF and read it like a text file.
+
+`pdfplumber` is a Python library that handles all that complexity. It goes through each page, extracts the actual text content, and returns it as a clean string. It works well for text-based PDFs. If the PDF is scanned (just images of pages), it can't extract text.
+
+---
