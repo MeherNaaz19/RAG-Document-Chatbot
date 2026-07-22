@@ -45,4 +45,12 @@ Similar meanings end up as similar numbers. So "password strength" and "secure p
 In this project I used `all-MiniLM-L6-v2` from the `sentence-transformers` library. It converts any text into a 384-dimensional vector (a list of 384 numbers). It runs completely locally on CPU, no API needed.
 
 ---
+## What is FAISS?
 
+FAISS stands for Facebook AI Similarity Search. It's a library that stores vectors and lets you search through them extremely fast.
+
+Think of it like a database, but instead of searching for exact matches, it searches for the *closest* matches based on vector distance. When you ask a question, FAISS finds the document chunks whose vectors are closest to your question's vector , those are the most semantically relevant chunks.
+
+I used `IndexFlatL2` which calculates Euclidean distance between vectors. It's the simplest index type — good for small datasets like the 50-100 chunks we get from a typical PDF.
+
+---
