@@ -54,3 +54,11 @@ Think of it like a database, but instead of searching for exact matches, it sear
 I used `IndexFlatL2` which calculates Euclidean distance between vectors. It's the simplest index type — good for small datasets like the 50-100 chunks we get from a typical PDF.
 
 ---
+
+## What is LangChain?
+
+LangChain is a framework for building applications with LLMs. It has a lot of utilities that make common LLM tasks easier.
+
+In this project I only used one part of it `RecursiveCharacterTextSplitter`. This splits long text into smaller chunks in a smart way. Instead of just cutting at exactly 500 characters, it tries to split at natural boundaries - paragraph breaks first, then sentence breaks, then word breaks. This keeps chunks more readable and meaningful than dumb character splitting.
+
+---
