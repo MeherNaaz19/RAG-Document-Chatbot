@@ -30,4 +30,19 @@ The key thing is — LLMs are incredibly capable, but they hallucinate. They gen
 
 They offer a free API to run models like Llama 3.3 — which is what I used in this project.
 
+---# Concepts Behind This Project
+
+This file explains the key technologies and ideas used in this project — written from my understanding after building it.
+
 ---
+
+## What are Embeddings?
+
+Computers can't directly compare text , they need numbers. Embeddings convert text into a list of numbers (a vector) that captures its meaning.
+
+Similar meanings end up as similar numbers. So "password strength" and "secure passwords" would have very close vectors, even though the words are different. This is what makes semantic search possible — you're not matching keywords, you're matching meanings.
+
+In this project I used `all-MiniLM-L6-v2` from the `sentence-transformers` library. It converts any text into a 384-dimensional vector (a list of 384 numbers). It runs completely locally on CPU, no API needed.
+
+---
+
