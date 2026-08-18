@@ -2,6 +2,8 @@
 
 A Retrieval-Augmented Generation (RAG) chatbot that answers questions and generates summaries from any PDF document grounded entirely in the document's content, with built-in hallucination prevention.
 
+🚀 **Live Demo:** https://huggingface.co/spaces/Meher19/RAG-Document-Chatbot
+
 ---
 
 ## 🔄 How It Works
