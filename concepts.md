@@ -20,7 +20,7 @@ Without RAG, if you asked "What did the report say about Electronic Health Recor
 
 LLM = Large Language Model. It's a neural network trained on massive amounts of text data to understand and generate human language. It works by predicting the next word/token given everything before it.
 
-Models like Llama 3.3 (which I used here) are open-source LLMs that anyone can use. The "70B" means 70 billion parameters — basically the number of weights the model learned during training. More parameters generally means smarter, but also slower and more expensive to run.
+Models like Llama 3.3, Qwen 3.6 27B are open-source LLMs that anyone can use. The "70B" means 70 billion parameters — basically the number of weights the model learned during training. More parameters generally means smarter, but also slower and more expensive to run.
 
 The key thing is — LLMs are incredibly capable, but they hallucinate. They generate some random text even when they don't know the answer. That's why grounding them with retrieved context (RAG) is so important.
 
@@ -97,7 +97,7 @@ In this project I handled it by explicitly telling the model in the prompt: *"If
 4. `FAISS` stores all the vectors
 5. User asks a question → question gets converted to a vector
 6. `FAISS` finds the most similar chunk vectors → retrieves those chunks
-7. Chunks + question go into a prompt → sent to `Llama 3.3` via `Groq`
+7. Chunks + question go into a prompt → sent to `Qwen 3.6 27B ` via `Groq`
 8. LLM generates a grounded answer using only the retrieved context
 
 That's the full RAG pipeline.
