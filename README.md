@@ -9,10 +9,11 @@ A Retrieval-Augmented Generation (RAG) chatbot that answers questions and genera
 ```
 PDF Upload → Text Extraction → Chunking → Embeddings →
 FAISS Vector Store → Query → Semantic Retrieval →
-LLM (Llama 3.3 via Groq) → Grounded Answer
+LLM (Qwen 3.6 27B via Groq) → Grounded Answer
 ```
 
 ---
+
 ## ✨ Features
 
 - **Document Q&A** : ask any question about the uploaded PDF, get accurate answers grounded only in document content
@@ -29,7 +30,9 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 - **Text Chunking** — LangChain (RecursiveCharacterTextSplitter)
 - **Embeddings** — sentence-transformers (`all-MiniLM-L6-v2`) —> runs locally, no API
 - **Vector Search** — FAISS (Facebook AI Similarity Search)
-- **LLM** — Llama 3.3 70B via Groq API
+- **LLM** — Qwen 3.6 27B via Groq API
+
+> **Note:** This project originally used Llama 3.3 70B via Groq. Groq has since deprecated/disabled that model, so the pipeline was migrated to Qwen 3.6 27B. Since Qwen is a reasoning model, its internal reasoning trace is suppressed via Groq's `reasoning_format="hidden"` parameter so only the final answer is returned to the user.
 
 ---
 
@@ -42,7 +45,7 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 | 3. Embed | sentence-transformers | Convert each chunk into a 384-dim vector |
 | 4. Store | FAISS | Index vectors for fast similarity search |
 | 5. Retrieve | FAISS search | Find top-k most relevant chunks for a query |
-| 6. Generate | Groq + Llama 3.3 | Synthesize a grounded answer from retrieved context |
+| 6. Generate | Groq + Qwen 3.6 27B | Synthesize a grounded answer from retrieved context |
 
 ---
 
@@ -57,20 +60,24 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
    ```
    Note: use the interactive loop at the end to chat with your document
    ```
+
 ---
+
 ## 💡 Key Design Decisions
 
 - **Local embeddings (no API)** — `sentence-transformers` runs entirely on CPU, avoiding API costs and rate limits for the retrieval step
 - **Grounding via prompting** — the LLM is explicitly instructed to decline answering when context is insufficient, tested and verified to work correctly rather than hallucinating
 - **Adaptive retrieval depth** — Q&A uses `top_k=3` for precision; section summarization uses `top_k=5` for broader context, since summarization needs more coverage than direct question-answering
+- **Model migration (Llama 3.3 → Qwen 3.6 27B)** — Groq disabled the Llama 3.3 70B endpoint, so the LLM was swapped to Qwen 3.6 27B; since Qwen exposes its reasoning process by default, `reasoning_format="hidden"` is set on every Groq call (plus a regex fallback that strips any stray `<think>` tags) so responses stay clean, direct answers instead of leaking the model's internal reasoning
 
 ---
+
 ## 🔮 Future Enhancements
 
 - RAG-based chunking strategy for very long documents (multi-stage map-reduce summarization)
 - Support for multiple PDFs in a single session
 - Persistent vector store instead of in-memory FAISS index
-- Web UI (Streamlit) 
+- Web UI (Streamlit)
 
 ---
 
@@ -80,8 +87,8 @@ LLM (Llama 3.3 via Groq) → Grounded Answer
 - Retrieval quality directly determines generation quality - vague queries return less relevant chunks
 - Explicit grounding instructions are essential to prevent LLM hallucination in RAG pipelines
 - Chunk size and overlap involve a precision-vs-context tradeoff that affects retrieval accuracy
+- Reasoning models (like Qwen) can leak their internal "thinking" into the response unless explicitly suppressed at the API level — prompt instructions alone aren't reliable enough to stop this
 
 ---
 
 *Author: Meher Naaz*
-
